@@ -25,6 +25,7 @@ namespace TruongChiDung_2121110102.GUI
         PictureBox pb = new PictureBox();
         SanPhamBAL cusBAL1 = new SanPhamBAL();
         SanPhamBAL cusBAL = new SanPhamBAL();
+
         public GiaoDien()
         {
             InitializeComponent();
@@ -207,16 +208,16 @@ namespace TruongChiDung_2121110102.GUI
 
 
 
-                SanPhamBEL cus = new SanPhamBEL();
-            cus.Ma = masp.Text;
-                cus.Ten = tensp.Text;
-                cus.Gia = float.Parse(gia.Text);
-                cus.Soluong = int.Parse(soluong.Text);
-                cus.Ncc = comboBox1.Text;
-                cus.Anh = nameimg;
+                SanPhamBEL edit = new SanPhamBEL();
+                edit.Ma = masp.Text;
+                edit.Ten = tensp.Text;
+                edit.Gia = float.Parse(gia.Text);
+                edit.Soluong = int.Parse(soluong.Text);
+                edit.Ncc = comboBox1.Text;
+                edit.Anh = nameimg;
 
                 // Gọi hàm để cập nhật thông tin sản phẩm trong cơ sở dữ liệu
-                cusBAL1.EditSanPham(cus);
+                cusBAL1.EditSanPham(edit);
 
             // Cập nhật thông tin trong DataGridView
             int idx = dgvSanPham.CurrentCell.RowIndex;
@@ -364,9 +365,9 @@ namespace TruongChiDung_2121110102.GUI
         private void search_TextChanged(object sender, EventArgs e)
         {
             dgvSanPham.Rows.Clear();
-            SanPhamBEL cus = new SanPhamBEL();
-            cus.Ma = search.Text;
-            List<SanPhamBEL> lstCus = cusBAL1.Timkiem(cus);
+            SanPhamBEL tk = new SanPhamBEL();
+            tk.Ma = search.Text;
+            List<SanPhamBEL> lstCus = cusBAL1.Timkiem(tk);
             foreach (SanPhamBEL c in lstCus)
             {
                 dgvSanPham.Rows.Add(c.Ma, c.Ten, c.Soluong, c.Gia, c.Ncc, c.Anh);

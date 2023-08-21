@@ -89,7 +89,7 @@ namespace TruongChiDung_2121110102.GUI
             muonSach.MaPhieuMuon = int.Parse(Mpm.Text);
             muonSach.TenDocGia = Tdg.Text;
             muonSach.MaSanPham = int.Parse(comboBox2.Text);
-            muonSach.SoLuong = int.Parse(sl.Text);
+            muonSach.SoLuong = int.Parse(sl.Text);  
             muonSach.NgayMuon = DateTime.Parse(dateTimePicker2.Text);
 
             // Lấy số lượng tồn kho
